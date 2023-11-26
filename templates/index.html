@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>FitMe: 개인화된 건강 및 운동 계획</h1>
+
+    <form action="/plan" method="post">
+        <label for="name">이름:</label><br>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="age">나이:</label><br>
+        <input type="number" id="age" name="age"><br>
+
+        <label for="gender">성별:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">남성</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">여성</label><br>
+
+        <label for="health">건강 상태:</label><br>
+        <input type="radio" id="good" name="health" value="good">
+        <label for="good">양호</label><br>
+        <input type="radio" id="average" name="health" value="average">
+        <label for="average">보통</label><br>
+        <input type="radio" id="poor" name="health" value="poor">
+        <label for="poor">나쁨</label><br>
+
+        <label for="ability">운동 능력:</label><br>
+        <input type="radio" id="beginner" name="ability" value="beginner">
+        <label for="beginner">초보</label><br>
+        <input type="radio" id="intermediate" name="ability" value="intermediate">
+        <label for="intermediate">중급</label><br>
+        <input type="radio" id="advanced" name="ability" value="advanced">
+        <label for="advanced">고급</label><br>
+
+        <label for="goal">건강 및 운동 목표:</label><br>
+        <input type="text" id="goal" name="goal"><br>
+
+        <input type="submit" value="계획 생성하기">
+    </form>
+
+</body>
+</html>
+
