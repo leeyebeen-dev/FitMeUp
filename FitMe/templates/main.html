@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>메인 페이지</title>
+    <style>
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        #todo {
+            list-style-type: none; /* Remove default bullet points */
+        }
+        .remove {
+            margin-left: 10px; /* Add some space between the text and the button */
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(to bottom, #6EA9FC, #FFFFFF);
+        }
+
+        p#feature {
+            background-color: #4993FA;
+            color: #FFFFFF;
+            border-radius: 100px;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-weight: bold;
+        }
+
+        div#profile {
+            align-self: flex-start;
+        }
+
+        pre#exercise {
+            width: 700px;
+            height: 300px;
+            text-align: left;
+            background-color: #DFECFF;
+            border-radius: 20px;
+            font-size: 15px;
+        }
+        #progressBar {
+            width: 600px;
+            height: 20px;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        #progressBar div {
+            height: 100%;
+            background-color: #4993FA;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: center; 
+        }
+        input#item {
+            width: 300px;
+            height: 40px;
+            background-color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            padding-left: 10px;
+        }
+        button#add {
+            margin-left: 10px;
+            border: none;
+            background-color: #FFFFFF;
+            color: #4993FA;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+        }
+
+        ul {
+            justify-content: center;  
+        }
+        ul#todo li {
+            background-color: #FFFFFF;
+            color: #575757;
+            width: 350px;
+            height: 40px;
+            overflow: hidden;
+            padding: 10px;
+            list-style-type: none;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex; /* 추가 */
+            align-items: center; /* 추가 */
+        }
+        ul#todo .checkbox {
+            display: inline-block;
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+        }
+        ul#todo .checkbox:checked {
+            background-color: #4993FA;
+        }
+        ul#todo .remove {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+            background-color: #DFECFF;
+            color: #4993FA;
+            border: none;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 20px;
+            display: flex; /* 추가 */
+            align-items: center; /* 추가 */
+            justify-content: center; /* 추가 */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #4993FA;
+            padding: 10px 50px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .logo img {
+            height: 24px;
+            margin: 0 10px;
+        }
+        .navbar .logo span {
+            color: #FFFFFF;
+        }
+        .navbar .icons img {
+            height: 24px;
+            margin: 0 10px;
+        }
+        
+    </style>
+</head>
+<body data-exercise-plan="{{ exercise_plan }}">
+
+    <meta charset="UTF-8">
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/healthicons_exercise-running.png') }}"> 
+            <span>FITME-UP</span>
+        </div>
+        <div class="icons">
+            <img src="{{ url_for('static', filename='images/ic_round-menu.png') }}"> 
+        </div>
+    </nav>
+
+    <br><br><br>
+
+    <p id="feature">   GPT가 추천해줄게요!   </p>
+    <h3>{{ user_info.name }}님이 입력하신 정보를 통해 맞춤 운동 계획을 제공해요.</h3>
+    <div>
+        <div id="profile">
+            <img src="{{ url_for('static', filename='images/fitme.png') }}" width="30px" height="30px">
+
+            <p>핏미[GPT]</p>
+        </div>
+        <pre id="exercise"></pre>
+    </div>  
+    <br><br><br>
+
+    <p id="feature">   운동 계획을 세워볼까요?   </p>
+    <h3>오늘 할 운동을 투두리스트에 적어볼까요?</h3>
+    <div id="progressBar">
+        <div></div>
+    </div>
+
+    <br>
+
+    <div class="input-group">
+        <input type="text" id="item">
+        <button id="add">+</button>
+    </div>
+    <ul id="todo"></ul>
+
+    <br><br><br>
+
+    <p id="feature">   이런 운동은 어때요?   </p>
+    <h3>이런 운동도 한 번 해보는 거 어떨까요?</h3>
+    <!-- 추천 운동 기능 구현 부분 -->
+    
+</body>
+</html>
+
+<script>
+    var exercise_plan = document.body.getAttribute('data-exercise-plan');
+    var i = 0;
+    function typeWriter() {
+        if (i < exercise_plan.length) {
+            document.getElementById("exercise").innerHTML += exercise_plan.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50); // 50ms delay between each character
+        }
+    }
+    window.onload = typeWriter;
+
+    document.getElementById('add').addEventListener('click', function() {
+        var value = document.getElementById('item').value;
+        if (value) {
+            addItem(value);
+            document.getElementById('item').value = '';
+        }
+    });
+
+    function addItem(value) {
+        var list = document.getElementById('todo');
+
+        // Create checkbox
+        var checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.className = "checkbox";
+
+        // Add event listener for checkbox to update progress bar
+        checkbox.addEventListener('change', updateProgressBar);
+
+        var item = document.createElement('li');
+        item.appendChild(checkbox); // Add checkbox to the item
+
+        var text = document.createTextNode(' ' + value); // Create a text node with the input value
+        item.appendChild(text); // Add the text node to the item
+
+        // Create remove button
+        var remove = document.createElement('button');
+        remove.classList.add('remove');
+        remove.innerHTML = "x"; // Use 'x' for the button text
+
+        // Add click event for removing the item
+        remove.addEventListener('click', removeItem);
+
+        item.appendChild(remove); // Add the remove button to the item
+
+        list.insertBefore(item, list.childNodes[0]);
+    }
+
+    function removeItem() {
+        var item = this.parentNode;
+        var parent = item.parentNode;
+        parent.removeChild(item);
+        updateProgressBar();
+    }
+
+    function updateProgressBar() {
+        var checkboxes = document.querySelectorAll('#todo input[type="checkbox"]');
+        var checkedCheckboxes = document.querySelectorAll('#todo input[type="checkbox"]:checked');
+        var progress = (checkedCheckboxes.length / checkboxes.length) * 100;
+        document.querySelector('#progressBar div').style.width = progress + '%';
+    }
+</script>
