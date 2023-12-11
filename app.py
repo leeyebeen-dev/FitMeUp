@@ -12,7 +12,7 @@ def index():
         return redirect(url_for('main_page'))
     return render_template('index.html')
 
-@app.route('/main', methods=['GET'])
+@app.route('/main', methods=['GET', 'POST'])
 def main_page():
     user_info = session.get('user_info', {})
     
