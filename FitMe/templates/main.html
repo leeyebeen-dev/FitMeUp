@@ -39,12 +39,13 @@
         }
 
         pre#exercise {
-            width: 700px;
-            height: 300px;
+            width: 720px;
+            height: 400px;
             text-align: left;
             background-color: #DFECFF;
             border-radius: 20px;
             font-size: 15px;
+            padding-top: 20px;
         }
         #progressBar {
             width: 600px;
@@ -83,6 +84,7 @@
 
         ul {
             justify-content: center;  
+            padding: 0;
         }
         ul#todo li {
             background-color: #FFFFFF;
@@ -149,7 +151,18 @@
             height: 24px;
             margin: 0 10px;
         }
+
+        #recommended-exercises {
+            border-radius: 10px;
+            background: #FFFFFF; 
+            padding: 10px; 
+            margin-bottom: 50px;
+            align-items: center;
+        }
         
+        iframe {
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body data-exercise-plan="{{ exercise_plan }}">
@@ -169,7 +182,7 @@
     <br><br><br>
 
     <p id="feature">   GPT가 추천해줄게요!   </p>
-    <h3>{{ user_info.name }}님이 입력하신 정보를 통해 맞춤 운동 계획을 제공해요.</h3>
+    <h2>{{ user_info.name }}님이 입력하신 정보를 통해 맞춤 운동 계획을 제공해요.</h2>
     <div>
         <div id="profile">
             <img src="{{ url_for('static', filename='images/fitme.png') }}" width="30px" height="30px">
@@ -181,7 +194,7 @@
     <br><br><br>
 
     <p id="feature">   운동 계획을 세워볼까요?   </p>
-    <h3>오늘 할 운동을 투두리스트에 적어볼까요?</h3>
+    <h2>오늘 할 운동을 투두리스트에 적어볼까요?</h2>
     <div id="progressBar">
         <div></div>
     </div>
@@ -197,13 +210,12 @@
     <br><br><br>
 
     <p id="feature">   이런 운동은 어때요?   </p>
-    <h3>이런 운동도 한 번 해보는 거 어떨까요?</h3>
+    <h2>이런 운동도 한 번 해보는 거 어떨까요?</h2>
     <div id="recommended-exercises">
-        <iframe margin-right="20px" width="200" height="100" src="https://youtube.com/embed/Ueb365f-bY0?si=l_YtnYJkdhhYS-g8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe width="200" height="100" src="https://www.youtube.com/embed/gMaB-fG4u4g?si=dx4dor218ibdCg55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe width="200" height="100" src="https://www.youtube.com/embed/myNjmnvI6x0?si=famj8NSwjZ4z2azG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="250" height="150" src="https://youtube.com/embed/Ueb365f-bY0?si=l_YtnYJkdhhYS-g8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="250" height="150" src="https://www.youtube.com/embed/gMaB-fG4u4g?si=dx4dor218ibdCg55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="250" height="150" src="https://www.youtube.com/embed/myNjmnvI6x0?si=famj8NSwjZ4z2azG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    
 </body>
 </html>
 
