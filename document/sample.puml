@@ -1,0 +1,18 @@
+@startuml
+start
+:사용자 등록;
+:목표 설정;
+:운동 계획 생성;
+:계획 확인 및 수정;
+:운동 실행;
+:피드백 및 조정;
+if (계획 수정 필요?) then (yes)
+  :계획 수정;
+else (no)
+  if (목표 달성?) then (yes)
+    stop
+  else (no)
+    :계속 운동;
+  endif
+endif
+@enduml
