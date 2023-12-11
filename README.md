@@ -50,3 +50,9 @@ GPT-4 기술을 활용하여 사용자의 건강 정보, 운동 능력, 선호�
 <br><br>
 
 ## 구현 영상
+
+
+<br><br>
+
+![image](https://github.com/leeyebeen-dev/FitMeUp/assets/84004751/7a5dc34b-ca1d-4ea3-bda8-4cb720c758e9)
+
