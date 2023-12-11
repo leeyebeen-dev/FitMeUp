@@ -1,3 +1,4 @@
+![image](https://github.com/leeyebeen-dev/FitMeUp/assets/84004751/b865c0df-d30d-4c47-ac29-8be332ada2da)
 
 ## 문제 정의
 
