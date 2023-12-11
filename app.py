@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import secrets
 # import openai
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=".")
 app.secret_key = secrets.token_hex(16)
 
 @app.route('/', methods=['GET', 'POST'])
