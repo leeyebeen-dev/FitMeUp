@@ -37,6 +37,44 @@ def main_page():
     return render_template('main.html', user_info=user_info, exercise_plan=exercise_plan)
 
    
+   # GPT 연동 시 사용하는 코드
+    '''
+    openai.api_key = your_openai_key
+
+    @app.route('/main', methods=['GET'])
+    def main_page():
+        user_info = session.get('user_info', {})
+        
+        if not all(key in user_info for key in ['name', 'age', 'gender', 'height', 'weight', 'ability', 'preference']):
+            return redirect(url_for('index', _external=True, _scheme='https', message="모든 사용자 정보를 채워주세요."))
+        
+        chat_model = "gpt-3.5-turbo"
+        messages = [
+            {
+                'role': 'system',
+                'content': '당신은 헬스 트레이너이면서 건강에 대해 잘 아는 사람입니다. 초보자도 쉽게 접근할 수 있는 정보를 제공해주세요.'
+            },
+            {
+                'role': 'user',
+                'content': f"""{user_info['name']}님의 정보:
+    - 나이: {user_info['age']}
+    - 성별: {user_info['gender']}
+    - 키: {user_info['height']}
+    - 몸무게: {user_info['weight']}
+    - 운동 능력: {user_info['ability']}
+    - 선호하는 운동: {user_info['preference']}
+    이 정보를 바탕으로 맞춤 운동 계획을 제안해주세요."""
+            }
+        ]
+
+        response = openai.ChatCompletion.create(
+            model=chat_model,
+            messages=messages
+        )
+        exercise_plan = response['choices'][0]['message']['content']
+        return render_template('main.html', user_info=user_info, exercise_plan=exercise_plan)
+    '''   
+
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
 
