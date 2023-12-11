@@ -22,9 +22,11 @@ GPT-4 기술을 활용하여 사용자의 건강 정보, 운동 능력, 선호�
 <br><br>
 
 ### 사용자의 정보를 입력하면?
+
 ![image](https://github.com/leeyebeen-dev/FitMeUp/assets/84004751/90092434-8b4c-4d3a-8dca-71befb6ba130)
 
 ### GPT가 운동 계획을 추천해요!
+
 ![image](https://github.com/leeyebeen-dev/FitMeUp/assets/84004751/5aea361a-eb4e-46ae-888a-30366cbf4cbd)
 
 <br><br>
@@ -49,8 +51,9 @@ GPT-4 기술을 활용하여 사용자의 건강 정보, 운동 능력, 선호�
 
 <br><br>
 
-## 구현 영상
+## 시연 영상
 
+![GPT](https://github.com/leeyebeen-dev/FitMeUp/assets/84004751/de33a094-5c35-4e7c-af46-9c5df574cd36)
 
 <br><br>
 
